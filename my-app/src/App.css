@@ -1,10 +1,16 @@
-.App {
-  text-align: center;
+:root {
+  --background: #4E6E81;
+  --primary: #F9DBBB;
+  --secondary: #FF0303 ;
+  --secondary-variant: #2E3840;
+  --text: #070707;
+  --text-light: #202020;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App {
+  text-align: center;
+  background-color: var(--background);
+  padding-bottom: 100px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -13,26 +19,104 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.Toolbar{
+  background-color: var(--primary);
+}
+
+.PageContent {
+  max-width: 60%;
+  margin: auto;
+}
+
+@media (max-width: 768px) {
+  .PageContent {
+    max-width: 90%;
+  }
+}
+
+.MyButton {
+  background-color: var(--secondary-variant);
+}
+
+.fake-news-article {
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
+  padding: 25px;
+  margin-bottom: 40px;
+}
+
+.article-title {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.article-meta {
+  font-size: 16px;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.article-content {
+  font-size: 20px;
+  line-height: 1.5;
+  margin-bottom: 30px;
+}
+
+.article-tags {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 10px;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.article-tags p {
+  background-color: #e6e6e6;
+  border-radius: 5px;
+  color: #333;
+  font-size: 14px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding: 5px 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (max-width: 768px) {
+  .article-tags p {
+    font-size: 12px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    padding: 3px 8px;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+.article-content:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .fake-news-article {
+    padding: 10px;
   }
+
+  .article-title {
+    font-size: 28px;
+    margin-bottom: 15px;
+  }
+
+  .article-meta {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+
+  .article-content {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+}
+
+.article_edited{
+  font-size: 12px;
+  font-weight: 400;
 }
