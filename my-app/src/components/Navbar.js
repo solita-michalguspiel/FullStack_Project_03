@@ -3,13 +3,12 @@ import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
 import Offcanvas from "react-bootstrap/Offcanvas";
 
 function MyNavbar() {
   return (
     <Container fluid>
-      <Navbar expand="lg" className="mb-3">
+      <Navbar expand="lg">
         <nav className="navbar">
           <span className="navbar-brand mb-0 h1">Fake News</span>
         </nav>
@@ -25,7 +24,7 @@ function MyNavbar() {
           </Offcanvas.Header>
           <Offcanvas.Body>
             <Nav className="justify-content-end flex-grow-1 pe-3">
-              <Nav.Link href="#action1">Add news</Nav.Link>
+              <Nav.Link href="#action1" disabled >Add news</Nav.Link>
             </Nav>
             <Form className="d-flex">
               <Form.Control
@@ -33,8 +32,9 @@ function MyNavbar() {
                 placeholder="Search"
                 className="me-2"
                 aria-label="Search"
+                disabled
               />
-                    <Button variant="dark" className ="MyButton">Search</Button>
+                    <Button variant="dark" className ="MyButton" disabled >Search</Button>
             </Form>
           </Offcanvas.Body>
         </Navbar.Offcanvas>

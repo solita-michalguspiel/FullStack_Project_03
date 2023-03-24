@@ -1,0 +1,37 @@
+.comment-item {
+    border: 1px solid #d1d1d1;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #dedede;
+  }
+  
+  .comment-author {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .comment-body {
+    margin-top: -10px;
+    margin-bottom: 10px;
+  }
+
+  .header-section{
+    justify-content: center;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .button{
+   width: 36px;
+   height: 36px;
+  }
+
+  .invisibleButton{
+    visibility: hidden;  
+  }
+  .comment-date {
+    font-size: 14px;
+    color: #484848;
+  }
+  
