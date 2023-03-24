@@ -1,13 +1,25 @@
 import Button from "react-bootstrap/Button";
-import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Offcanvas from "react-bootstrap/Offcanvas";
+import { useState } from "react";
 
-function MyNavbar() {
+function MyNavbar({search}) {
+
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const handleSearch = () => {
+    console.log("Handle search", searchQuery)
+    search(searchQuery);
+  };
+
+  const editSearch = (event) => {
+    setSearchQuery(event.target.value)
+  }
+
   return (
-    <Container fluid>
+    <div fluid>
       <Navbar expand="lg">
         <nav className="navbar">
           <span className="navbar-brand mb-0 h1">Fake News</span>
@@ -24,22 +36,22 @@ function MyNavbar() {
           </Offcanvas.Header>
           <Offcanvas.Body>
             <Nav className="justify-content-end flex-grow-1 pe-3">
-              <Nav.Link href="#action1" disabled >Add news</Nav.Link>
             </Nav>
-            <Form className="d-flex">
+            <Form >
               <Form.Control
                 type="search"
                 placeholder="Search"
                 className="me-2"
                 aria-label="Search"
-                disabled
-              />
-                    <Button variant="dark" className ="MyButton" disabled >Search</Button>
+                value={searchQuery}
+                onChange={editSearch}
+                />
+                    <Button variant="dark" className ="MyButton" onClick= {handleSearch} >Search</Button>
             </Form>
           </Offcanvas.Body>
         </Navbar.Offcanvas>
       </Navbar>
-    </Container>
+    </div>
   );
 }
 

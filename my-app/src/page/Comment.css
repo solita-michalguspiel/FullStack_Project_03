@@ -1,0 +1,22 @@
+.CommentContent {
+    width: 60%;
+    max-width: 1200px;
+    margin: auto;
+    padding-top: 150px;
+  }
+
+  @media (max-width: 768px) {
+    .CommentContent {
+      max-width: 90%;
+    }
+  }
+
+  .Toolbar{
+    background-color: var(--primary);
+  }
+
+.navbar-brand{
+    margin-left: 30px;
+    font-size: 46px;
+    font-weight: 600;
+}

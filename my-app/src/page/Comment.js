@@ -5,6 +5,8 @@ import axios from "axios";
 import { API_URL } from "../util/Constants";
 import CommentItem from "../components/Comment";
 import AddCommentForm from "../components/AddComment";
+import "./Comment.css";
+
 
 const Comment = () => {
   const { id } = useParams(); // get the id parameter from the URL
@@ -60,7 +62,7 @@ const Comment = () => {
   }
 
   return (
-    <div>
+    <div className="CommentContent">
       <FakeNewsArticle
         id={article._id}
         title={article.title}
