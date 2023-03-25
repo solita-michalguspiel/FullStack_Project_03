@@ -13,3 +13,6 @@ Application serves as a news portal, however there are only fake news on the web
 In order to run application locally you need to have react on your machine,
 afterwards run "npm install" and then "npm start"
 
+## Link
+
+Application hosted with Firebase at : https://fake-news-react-app.web.app/news
