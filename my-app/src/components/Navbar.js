@@ -4,6 +4,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { useState } from "react";
+import "./NavBar.css"
 
 function MyNavbar({search}) {
 
@@ -22,7 +23,7 @@ function MyNavbar({search}) {
     <div fluid>
       <Navbar expand="lg">
         <nav className="navbar">
-          <span className="navbar-brand mb-0 h1">Fake News</span>
+            <h1>Fake News</h1>
         </nav>
         <Navbar.Offcanvas
           id="offcanvasNavbar"

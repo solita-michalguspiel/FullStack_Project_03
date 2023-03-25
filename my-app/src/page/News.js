@@ -5,11 +5,13 @@ import FakeNewsArticle from "../components/FakeNewsArticle";
 import MyNavbar from "../components/Navbar";
 import { Button } from "react-bootstrap";
 import "./News.css";
+import NoItemsComponent from "../components/NoItemsComponent";
 
 function News() {
   console.log("MyLayout called");
   const [fullItems, setFullItems] = useState([]);
   const [items, setItems] = useState([]);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     console.log("UseEffect called");
@@ -18,6 +20,7 @@ function News() {
       console.log(response);
       setItems(response.data);
       setFullItems(response.data);
+      setIsLoaded(true);
     });
   }, []);
 
@@ -28,21 +31,15 @@ function News() {
     setItems(filteredItems);
   };
 
-
   return (
     <div fluid>
       <header className="Toolbar">
-        <MyNavbar search={handleSearch}/>
+        <MyNavbar search={handleSearch} />
       </header>
 
       <div className="NewsContent">
         {items.length === 0 ? (
-          <div>
-            <h2>Looks like there's nothing as such.</h2>
-            <Button onClick={() => handleSearch("")}>
-              Reset Search
-            </Button>
-          </div>
+          <NoItemsComponent isLoaded={isLoaded} handleSearch={handleSearch} />
         ) : (
           <ul>
             {items.map((item) => (
@@ -59,6 +56,11 @@ function News() {
                 />
               </div>
             ))}
+            <div>
+              <Button variant="dark" onClick={() => handleSearch("")}>
+                Reset Search
+              </Button>
+            </div>
           </ul>
         )}
       </div>

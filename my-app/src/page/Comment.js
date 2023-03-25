@@ -6,7 +6,7 @@ import { API_URL } from "../util/Constants";
 import CommentItem from "../components/Comment";
 import AddCommentForm from "../components/AddComment";
 import "./Comment.css";
-
+import NoItemsComponent from "../components/NoItemsComponent";
 
 const Comment = () => {
   const { id } = useParams(); // get the id parameter from the URL
@@ -34,31 +34,40 @@ const Comment = () => {
   }, [id]);
 
   const handleCommentRemoved = (commentId) => {
-    axios.delete(API_URL + `/api/deletecomment/${commentId}`).then((response) => {
-      console.log(response);
-      setComments(comments.filter((comment) => comment._id !== commentId));
-    });
+    axios
+      .delete(API_URL + `/api/deletecomment/${commentId}`)
+      .then((response) => {
+        console.log(response);
+        setComments(comments.filter((comment) => comment._id !== commentId));
+      });
   };
 
   const handleLikeGiven = (commentId) => {
     const updatedComments = comments.map((comment) => {
-        if (comment._id === commentId) {
-          return {
-            ...comment,
-            likes: comment.likes + 1
-          };
-        } else {
-          return comment;
-        }
-      });
-      setComments(updatedComments);
+      if (comment._id === commentId) {
+        return {
+          ...comment,
+          likes: comment.likes + 1,
+        };
+      } else {
+        return comment;
+      }
+    });
+    setComments(updatedComments);
     axios.put(API_URL + `/api/updateComment/${commentId}`).then((response) => {
       console.log(response);
     });
   };
 
   if (Object.keys(article).length === 0) {
-    return <div>Loading...</div>;
+    return (
+      <NoItemsComponent
+        isLoaded={false}
+        handleSearch={console.log(
+          "No need for search here since it's always false"
+        )}
+      />
+    );
   }
 
   return (

@@ -14,9 +14,3 @@
   .Toolbar{
     background-color: var(--primary);
   }
-
-.navbar-brand{
-    margin-left: 30px;
-    font-size: 46px;
-    font-weight: 600;
-}
